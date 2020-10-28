@@ -6,6 +6,9 @@ class CalculatorError(Exception):
 
 class Calculator:
 
+    def __init__(self, printer):
+        self.printer = printer
+
 
     def add(self, a, b):
         self._check_operand(a)
@@ -27,3 +30,8 @@ class Calculator:
     def _check_operand(self, operand):
         if not isinstance(operand, numbers.Number):
             raise CalculatorError(f"{operand} not a number")
+
+
+    def call_calc_printer(self):
+        self.printer.persist()
+        print("no")
